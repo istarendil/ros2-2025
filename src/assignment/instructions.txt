@@ -1,0 +1,8 @@
+1. RUN the GUI
+ros2 run turtlesim turtlesim_node
+
+2. RUN the controller
+ros2 run assignment1_rt two_turtles
+
+3. Subscribe to the turtle2 pose topic
+ros2 topic echo /turtle2/pose
