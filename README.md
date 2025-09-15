@@ -20,6 +20,7 @@ The goal of this assignment is to implement a **UI node** with the following fea
 - Publish a custom message containing the string `"turtle2"` and the position of turtle2.
 
 ### 🔹 Demonstration
+> ⚠️ *Note: The GUI and terminal GIFs are not temporally synchronized. They are intended for illustration only.*
 
 <p align="center">
   <img src="figures/two_gui.gif" alt="Assignment 1 GUI" width="400"/>
