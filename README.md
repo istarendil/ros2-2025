@@ -5,10 +5,6 @@ Assignments for the course **"Robot Programming with ROS - 2025"**, taught by **
 
 This repository contains the solutions for **two assignments** implemented in **ROS2** using **Python** and the **Turtlesim** simulator.
 
-For each assignment, two GIFs are included to visually demonstrate the results:
-- One shows the **GUI with the turtle(s) moving**.
-- The other shows the **terminal execution**.
-
 ---
 
 ## 📘 Assignment 1 (ROS2)
