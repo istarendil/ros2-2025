@@ -1,0 +1,57 @@
+<h1 id="robot-programming-with-ros---2025">Robot Programming with ROS - 2025</h1>
+<p>Assignments for the course <strong>“Robot Programming with ROS - 2025”</strong>, taught by <strong>Prof. Carmine Tommaso Recchiuto</strong>.</p>
+<p>This repository contains the solutions for <strong>two assignments</strong> implemented in <strong>ROS2</strong> using <strong>Python</strong> and the <strong>Turtlesim</strong> simulator.</p>
+<p>For each assignment, two GIFs are included to visually demonstrate the results: - One shows the <strong>GUI with the turtle(s) moving</strong>. - The other shows the <strong>terminal execution</strong>.</p>
+<hr />
+<h2 id="assignment-1-ros2">📘 Assignment 1 (ROS2)</h2>
+<p>The goal of this assignment is to implement a <strong>UI node</strong> with the following features: - Spawn a new turtle in the environment: <strong>turtle2</strong>. - Implement a simple textual interface to retrieve user commands (<code>input</code> in Python).<br />
+The user can: - Select which turtle to control (<strong>turtle1</strong> or <strong>turtle2</strong>). - Specify the velocity (linear, angular, or both). - The command is sent for 1 second, after which the robot stops.<br />
+The user can then input a new command. - Publish a custom message containing the string <code>"turtle2"</code> and the position of turtle2.</p>
+<h3 id="demonstration">🔹 Demonstration</h3>
+<p align="center">
+<img src="figures/two_gui.gif" alt="Assignment 1 GUI" width="400"/> <img src="figures/two_term.gif" alt="Assignment 1 Terminal" width="400"/>
+</p>
+<hr />
+<h2 id="assignment-2-mandatory-in-ros2">📘 Assignment 2 (Mandatory in ROS2)</h2>
+<p>The second assignment extends the first one and must be done using <strong>ROS2</strong>.<br />
+The tasks are: - Call the service <code>kill</code> to remove <strong>turtle1</strong> and spawn a new turtle. - Create a <strong>publisher</strong> and a <strong>subscriber</strong> for the new turtle (<code>cmd_vel</code> and <code>pose</code> topics). - Check message types and add the needed dependencies. - Add both a publisher and a subscriber node. - Publish a certain velocity inside the callback. - Create a <strong>launch file</strong> to start <code>turtlesim</code> and the controller.</p>
+<h3 id="demonstration-1">🔹 Demonstration</h3>
+<p align="center">
+<img src="figures/autonomous_gui.gif" alt="Assignment 2 GUI" width="400"/> <img src="figures/autonomous_terminal.gif" alt="Assignment 2 Terminal" width="400"/>
+</p>
+<hr />
+<h2 id="technologies">🛠️ Technologies</h2>
+<ul>
+<li>ROS2<br />
+</li>
+<li>Python<br />
+</li>
+<li>Turtlesim package</li>
+</ul>
+<hr />
+<h2 id="repository-organization">📂 Repository Organization</h2>
+<p>The <code>src/</code> folder contains two ROS2 packages:</p>
+<pre class="text"><code>src/
+├── assignment/                     # Main ROS2 package
+│   ├── two_turtles.py              # Assignment 1: UI and textual interface node to control turtle1 and turtle2
+│   ├── trajectory_turtle.py        # Assignment 2: node to generate trajectories for the turtle
+│   ├── launch/
+│   │   └── launch_assignment.py    # Assignment 2: launch file for turtlesim and the controller
+│   ├── package.xml                 # ROS2 package manifest
+│   ├── setup.py / setup.cfg        # Build and installation configuration
+│
+├── assignment_msg/                 # Custom ROS2 message package
+│   ├── msg/TurtleInfo.msg          # Assignment 1: custom message with turtle info
+│   ├── CMakeLists.txt              # Build configuration for messages
+│   └── package.xml                 # Message package manifest
+│</code></pre>
+<p>This structure separates the logic nodes (assignment/) from the custom message definitions (assignment_msg/), following standard ROS2 practices.</p>
+<h2 id="technologies-1">🛠️ Technologies</h2>
+<ul>
+<li>ROS2</li>
+<li>Python</li>
+<li>Turtlesim package</li>
+</ul>
+<hr />
+<h2 id="author">👤 Author</h2>
+<p><strong>Carlos Alberto Sánchez Delgado</strong> Student at <strong>University of Genoa (UniGe) – IIT</strong>, <em>Doctoral Program in Robotics and Intelligent Machines (DRIM)</em>.</p>

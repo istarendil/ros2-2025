@@ -1,5 +1,3 @@
-
-#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 
@@ -7,6 +5,7 @@ from rclpy.node import Node
 from turtlesim.msg import Pose
 from geometry_msgs.msg import Twist
 from turtlesim.srv import Kill, Spawn
+import math
 
 SPEED = 1.0
 
@@ -56,22 +55,23 @@ class TurtleController(Node):
 
     def turtle_callback(self, msg: Pose):
         my_vel = Twist()
-
+        self.get_logger().info(f"Angle: {msg.theta}")
         # If user selected "stop at top" and turtle reaches the top edge
         if self.stop_at_top and msg.y > 10.5:
             my_vel.linear.x = 0.0
             my_vel.angular.z = 0.0
             self.get_logger().info("Reached top edge. Turtle stopped.")
         
+        #if msg.x > 9.0 and abs(abs(msg.theta) - math.pi) < 0.1:
         # If turtle goes beyond right boundary, turn in a circular arc
-        elif msg.x > 9.0:
+        elif msg.x > 9.0 and abs(msg.theta) < (math.pi - 0.05):
             my_vel.linear.x = SPEED
-            my_vel.angular.z = SPEED
+            my_vel.angular.z = SPEED 
 
         # If turtle goes beyond left boundary, turn in the opposite circular arc
-        elif msg.x < 2.0:
-            my_vel.linear.x = SPEED 
-            my_vel.angular.z = -SPEED 
+        elif msg.x < 1.5 and abs(msg.theta) > (0.05):
+            my_vel.linear.x = SPEED
+            my_vel.angular.z = -SPEED
 
         # Otherwise move straight along x
         else:
